@@ -1,17 +1,21 @@
 
+# [70, 50, 80, 50]
 def solution(people, limit):
     answer = 0
+    start = 0
+    end = len(people) - 1
 
     # 순차 정렬
     people.sort()
 
-    count = 0
-    for i in range(0, len(people)):
-        if people[i] + people[i + 1] <= limit:
-            people.remove(i + 1)
-            count += 1
+    while start <= end:
+        if people[start] + people[end] <= limit:
+            start += 1
+            end -= 1
+        else:
+            end -= 1
 
-    answer = count + len(people)
+        answer += 1
 
     return answer
 
