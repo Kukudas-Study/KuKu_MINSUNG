@@ -1,4 +1,4 @@
-package week6;
+package week6.backjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
