@@ -1,0 +1,52 @@
+# users 
+/*[		
+	id INT AUTO_INCREMENT PRIMERY KEY, 
+	email VARCHAR(100) NOT NULL UNIQUE, 
+	name VARCHAR(100) NOT NULL, 
+	password VARCHAR(255) NOT NULL, 
+	bio TEXT, 
+	profile_pic VARCHAR(255), 
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+	deleted_at DATETIME
+]*/
+
+# posts
+/*
+ [
+ 	id,
+ 	user_id,
+ 	content,
+ 	image
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, 
+	deleted_at DATETIME
+	유저아이디는 users 테이블과 관계가 있다. (유저가 삭제되면, 게시물도 같이 삭제되도록)
+]
+ */
+
+
+# likes
+/*[
+	id,
+	user_id,
+	post_id,
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	deleted_at DATETIME
+	유저아이디는 users 테이블과 연계가 있다. (유저가 삭제되면, 좋아요도 같이 삭제되도록)
+	포스트아이디는 posts 테이블과 관계가 있다. (게시물이 삭제되면, 좋아요도 같이 삭제되도록)
+]*/
+
+
+# follower
+/*
+ [
+ 	id,
+ 	following_id,
+ 	followed_id,
+	created_at DATETIME DEFAULT CURRENT_TIMESTAMP, 
+	deleted_at DATETIME
+	팔로잉아이디는 users 테이블과 관계가 있다. (유저가 삭제되면, 같이 삭제되도록)
+	팔로우드아이디는 users 테이블과 관계가 있다. (유저가 삭제되면, 같이 삭제되도록)
+ ]
+ */
